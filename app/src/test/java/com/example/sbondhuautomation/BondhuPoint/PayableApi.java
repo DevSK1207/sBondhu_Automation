@@ -8,6 +8,7 @@ import io.restassured.specification.RequestSpecification;
 
 import static io.restassured.RestAssured.get;
 import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.hasItems;
 import static org.hamcrest.Matchers.not;
 
 public class PayableApi {
@@ -78,18 +79,12 @@ public class PayableApi {
                 then().statusCode(200).assertThat()
                 .body("message", (equalTo("Successful")))
                 .body("payments", not(equalTo(null)))
-               /* //.body("payments.name", (equalTo("bKash")))
-                .body("payments.name_bn", (equalTo("বিকাশ")))
-                .body("payments.is_published", (equalTo("1")))
-                .body("payments.description", (equalTo("")))
-                .body("payments.asset", (equalTo("bkash")))
-                .body("payments.method_name", (equalTo("bkash")))
-               // .body("payments.name", (equalTo("Nagad")))
-                .body("payments.name_bn", (equalTo("নগদ")))
-                .body("payments.is_published", (equalTo("1")))
-                .body("payments.description", (equalTo("")))
-                .body("payments.asset", (equalTo("nagad")))
-                .body("payments.method_name", (equalTo("nagad")))*/
+               .body("payments.name", (hasItems("bKash","Nagad")))
+                .body("payments.name_bn", (hasItems("বিকাশ","নগদ")))
+                 .body("payments.is_published", (hasItems(1,1)))
+                 .body("payments.description", (hasItems("","")))
+                 .body("payments.asset", (hasItems("bkash","nagad")))
+                 .body("payments.method_name", (hasItems("bkash","nagad")))
 
                 .body("discount_message", (equalTo("Pay online and stay relaxed!!!")));
 
