@@ -19,6 +19,7 @@ public class PayableApi {
     public void setup() {
         RestAssured.baseURI = "https://api.dev-sheba.xyz";
     }
+      /*  public void setup(){ RestAssured.baseURI = "https://api.sheba.xyz";}*/
 
 
     /**

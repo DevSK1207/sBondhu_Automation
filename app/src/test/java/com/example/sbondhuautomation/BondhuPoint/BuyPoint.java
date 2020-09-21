@@ -23,6 +23,8 @@ public class BuyPoint {
     public void setup(){
         RestAssured.baseURI = "https://api.dev-sheba.xyz";
     }
+    /*  public void setup(){ RestAssured.baseURI = "https://api.sheba.xyz";}*/
+
 
 
 
