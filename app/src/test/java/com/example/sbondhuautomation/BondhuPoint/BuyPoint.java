@@ -11,7 +11,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.Matchers.not;
 
 /**
- * Movie Ticket Rest Assure Code
+ * Buy point Rest Assure Code
  * Nowrin
  * 21/9/2020
  */
